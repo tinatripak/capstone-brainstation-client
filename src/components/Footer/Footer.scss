@@ -1,0 +1,31 @@
+@import "../../styles/global.scss";
+
+.footer {
+  background-color: $footer-bg;
+  padding: 3rem 6rem;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: normal;
+    gap: 2rem;
+    &__link {
+      &--login {
+        background-color: transparent;
+        padding: 0;
+      }
+    }
+  }
+  .logo {
+    &__image {
+      mix-blend-mode: darken;
+    }
+  }
+  &__copyright {
+    text-align: center;
+  }
+}
