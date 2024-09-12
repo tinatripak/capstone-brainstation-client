@@ -1,0 +1,38 @@
+@import "../../styles/global.scss";
+
+.about {
+  padding: 0 6rem 6rem 6rem;
+  min-height: calc(100vh - 14.5rem);
+  position: relative;
+
+  &__heading {
+    font-size: 4rem;
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to right, $black 8%, transparent 13%) 100% 1;
+  }
+  &__question {
+    margin: 2rem 0;
+  }
+  &__paragraph {
+    display: block;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+    &:first-child {
+      width: 70%;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__signature {
+    text-align: end;
+    margin-top: 2rem;
+    font-size: 1.3rem;
+  }
+  &__image {
+    position: absolute;
+    top: 0;
+    right: 6rem;
+    width: 18rem;
+  }
+}
