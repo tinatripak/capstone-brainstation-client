@@ -10,8 +10,8 @@ const ProtectedRoute = ({ children }) => {
     const token = Cookies.get("token");
     try {
       if (token) {
-        await checkToken(token);
-        setIsAuthenticated(true);
+        const success = await checkToken(token);
+        if (success) setIsAuthenticated(true);
       }
     } catch (err) {
       setIsAuthenticated(false);
