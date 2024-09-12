@@ -1,0 +1,47 @@
+@import "../../styles/global.scss";
+
+.home-poem {
+  padding: 0 6rem;
+  min-height: calc(100vh - 6rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  &__wrapper {
+    width: 30%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+  &__top-border {
+    width: 10rem;
+    height: 1px;
+    background-color: $black;
+  }
+  &__content {
+    span {
+      display: block;
+      text-align: center;
+    }
+  }
+  &__bottom-border {
+    width: 15rem;
+    height: 1px;
+    background-color: $black;
+    margin-left: auto;
+  }
+  &__image {
+    width: 18rem;
+    &--rose {
+      position: absolute;
+      left: 6rem;
+      top: 6rem;
+    }
+    &--leafs {
+      position: absolute;
+      bottom: 6rem;
+      right: 6rem;
+    }
+  }
+}
