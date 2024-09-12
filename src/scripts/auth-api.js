@@ -21,12 +21,12 @@ export const register = async (user) => {
 
 export const checkToken = async (token) => {
   try {
-    const response = await axios.get(`${api_url}/auth/register`, {
+    const { success } = await axios.get(`${api_url}/auth/register`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-    return response;
+    return success;
   } catch (error) {
     console.error("Error fetching all poems: ", error);
   }
