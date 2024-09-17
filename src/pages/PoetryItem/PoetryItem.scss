@@ -1,0 +1,53 @@
+@import "../../styles/global.scss";
+
+.poetry-item {
+  padding: 0 6rem 4rem 6rem;
+  margin-top: 1.8rem;
+  min-height: calc(100vh - 12.276rem);
+  position: relative;
+  &__poem {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  &__title {
+    margin-bottom: 2rem;
+  }
+  &__image {
+    position: absolute;
+    bottom: 1rem;
+    right: 0;
+    width: 20rem;
+  }
+
+  &__details {
+    span {
+      text-decoration: underline;
+    }
+  }
+  &__poems {
+    padding: 0;
+  }
+  &__extra {
+    display: flex;
+    align-items: center;
+    border: 1px solid $pink;
+    width: 25rem;
+  }
+  &__extra-image {
+    padding: 0.5rem;
+    background-color: $pink;
+    img {
+      width: 3rem;
+      mix-blend-mode: darken;
+    }
+  }
+  &__extra-title {
+    padding: 1rem;
+    h2 {
+      font-size: 1rem;
+    }
+  }
+  &__author {
+    margin-bottom: 1rem;
+  }
+}
