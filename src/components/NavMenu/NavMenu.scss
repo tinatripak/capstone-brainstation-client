@@ -1,0 +1,15 @@
+@import "../../styles/global.scss";
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  &__link {
+    &--login {
+      padding: 0.5rem 1.5rem;
+      background-color: $pink;
+      border-radius: 1rem;
+    }
+    @include link-styles;
+  }
+}

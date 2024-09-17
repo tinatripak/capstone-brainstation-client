@@ -1,7 +1,7 @@
 import "./Button.scss";
 
-const Button = () => {
-  return <div>Button</div>;
+const Button = ({ text }) => {
+  return <button className="button">{text}</button>;
 };
 
 export default Button;
