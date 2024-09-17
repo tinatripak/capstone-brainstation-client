@@ -1,0 +1,5 @@
+@import "../../styles/global.scss";
+
+.sign-up {
+  @include sign-form-styles;
+}
