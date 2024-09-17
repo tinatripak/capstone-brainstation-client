@@ -1,0 +1,14 @@
+@import "../../styles/global.scss";
+.sign-up {
+  @include sign-page-styles;
+  &__login {
+    display: flex;
+    margin: 1rem auto 0 auto;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+  }
+  &__login-link {
+    color: $dark-pink;
+    font-size: 0.8rem;
+  }
+}
