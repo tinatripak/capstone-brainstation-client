@@ -1,0 +1,17 @@
+@import "../../styles/global.scss";
+
+.quote {
+  background-color: $pink;
+  font-family: "Licorice", sans-serif;
+  font-size: 2rem;
+  padding: 3rem 0;
+  text-align: center;
+  margin-bottom: 5rem;
+  &__content {
+    width: 70%;
+    margin: 0 auto;
+  }
+  &__author {
+    text-align: right;
+  }
+}

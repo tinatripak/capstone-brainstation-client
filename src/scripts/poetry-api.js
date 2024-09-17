@@ -19,6 +19,15 @@ export const getPoem = async (id) => {
   }
 };
 
+export const getPoemsByAuthor = async (id) => {
+  try {
+    const response = await axios.get(`${api_url}/poetry/author/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching poems by authorId ${id}: ${error}`);
+  }
+};
+
 export const postPoem = async (newPoem, token) => {
   try {
     const response = await axios.post(`${api_url}/poetry`, newPoem, {

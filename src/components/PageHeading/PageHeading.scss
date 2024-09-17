@@ -1,0 +1,18 @@
+@import "../../styles/global.scss";
+
+.page-heading {
+  font-size: 5rem;
+  width: 30rem;
+  margin: 0 auto;
+  padding-top: 2rem;
+  &__content {
+    font-size: 5rem;
+    &--second {
+      text-align: end;
+    }
+  }
+  &__border-bottom {
+    border-bottom: 0.3rem solid $pink;
+    text-decoration-skip: ink;
+  }
+}
