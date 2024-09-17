@@ -24,7 +24,7 @@ const App = () => {
           <Route path="/login" element={<SignIn />} />
           <Route path="/register" element={<SignUp />} />
           <Route path="/poetry" element={<Poetry />} />
-          <Route path="/poem" element={<PoetryItem />} />
+          <Route path="/poem/:id" element={<PoetryItem />} />
           <Route path="*" element={<NotFound />} />
 
           <Route
