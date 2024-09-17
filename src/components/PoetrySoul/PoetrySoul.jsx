@@ -5,7 +5,7 @@ import "./PoetrySoul.scss";
 const PoetrySoul = () => {
   return (
     <div className="poetry-soul">
-      <div className="poetry">
+      <div className="poetry__column">
         <div className="poetry__heading-image">
           <img
             className="poetry__image"
@@ -21,7 +21,7 @@ const PoetrySoul = () => {
           <span>Seeped through the window like floods.</span>
         </p>
       </div>
-      <div className="soul">
+      <div className="soul__column">
         <p className="soul__text">
           <span>Every bit of the radiance of a blooming tree</span>
           <span>Creates a non-existent incredible sea. </span>

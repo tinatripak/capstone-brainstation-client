@@ -8,13 +8,14 @@
   display: flex;
 
   .poetry {
-    padding: 6rem 3rem 6rem 6rem;
-    width: 50%;
-    background-color: $light-gray;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
+    &__column {
+      padding: 6rem 3rem 6rem 6rem;
+      width: 50%;
+      background-color: $light-gray;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
     &__heading {
       color: $gray-text-color;
       font-size: 7rem;
@@ -39,13 +40,14 @@
     }
   }
   .soul {
-    padding: 6rem 6rem 6rem 3rem;
-    width: 50%;
-    background-color: $dark-gray;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
+    &__column {
+      padding: 6rem 6rem 6rem 3rem;
+      width: 50%;
+      background-color: $dark-gray;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
     &__heading {
       color: $light-text-color;
       font-size: 7rem;
