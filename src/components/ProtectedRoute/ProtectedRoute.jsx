@@ -11,7 +11,6 @@ const ProtectedRoute = ({ element: Component }) => {
   const validateToken = async () => {
     try {
       const success = await checkToken(cookies.token);
-      console.log(success);
       if (success) {
         setIsAuthenticated(true);
       }
