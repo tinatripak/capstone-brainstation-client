@@ -37,7 +37,7 @@ export const postPoem = async (newPoem, token) => {
     });
     return response.data;
   } catch (error) {
-    console.error(`Error adding a warehouse: ${error}`);
+    console.error(`Error adding a poem: ${error}`);
   }
 };
 
@@ -50,7 +50,7 @@ export const updatePoem = async (id, updatedPoem, token) => {
     });
     return response.data;
   } catch (error) {
-    console.error(`Error updating warehouse ${id}: ${error}`);
+    console.error(`Error updating a poem by ${id}: ${error}`);
   }
 };
 
@@ -62,6 +62,6 @@ export const deletePoem = async (id, token) => {
       },
     });
   } catch (error) {
-    console.error(`Error deleting a warehouse: ${error}`);
+    console.error(`Error deleting a poem: ${error}`);
   }
 };

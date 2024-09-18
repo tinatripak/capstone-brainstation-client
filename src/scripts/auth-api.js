@@ -8,7 +8,7 @@ export const login = async (user) => {
     });
     return response;
   } catch (error) {
-    console.error("Error fetching all poems: ", error);
+    console.error("Error fetching a login: ", error);
   }
 };
 
@@ -19,22 +19,20 @@ export const register = async (user) => {
     });
     return response;
   } catch (error) {
-    console.error("Error fetching all poems: ", error);
+    console.error("Error fetching a register: ", error);
   }
 };
 
 export const checkToken = async (token) => {
   try {
-    const {
-      data: { success },
-    } = await axios.get(`${api_url}/auth/register`, {
+    const { data } = await axios.get(`${api_url}/auth/checkToken`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
       withCredentials: true,
     });
-    return success;
+    return data.success;
   } catch (error) {
-    console.error("Error fetching all poems: ", error);
+    console.error("Error fetching a token: ", error);
   }
 };
