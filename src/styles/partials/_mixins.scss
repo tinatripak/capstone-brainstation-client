@@ -32,8 +32,11 @@
 
 @mixin sign-page-styles {
   padding: 0 6rem 3rem 6rem;
-  margin-top: 3rem;
-  min-height: calc(100vh - 12.276rem);
+  min-height: calc(100vh - 9.3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   &__wrapper {
     width: 80%;
     display: flex;

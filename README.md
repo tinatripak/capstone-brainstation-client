@@ -53,7 +53,7 @@ Everybody needs a supportive space where they can share their poetry and persona
   - react-router
   - axios
   - firebase
-  - js-cookie
+  - react-cookie
 - Server libraries:
   - express
   - bcrypt for password hashing
