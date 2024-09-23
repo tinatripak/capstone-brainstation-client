@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { storage } from "./utils/firebase";
+import { storage } from "../../utils/firebase";
+import "./ImageUpload.scss";
 
-const ImageUpload = () => {
+const ImageUpload = ({ photo, imageUrl, setImageUrl }) => {
   const [file, setFile] = useState(null);
   const [progress, setProgress] = useState(0);
-  const [imageUrl, setImageUrl] = useState("");
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -40,18 +40,34 @@ const ImageUpload = () => {
   };
 
   return (
-    <div>
-      <div>
-        {imageUrl && (
+    <div className="image-upload">
+      <div className="image-upload__photo-block">
+        {imageUrl ? (
           <div>
             <p>Uploaded Image:</p>
-            <img src={imageUrl} alt="User's photo" />
+            <img
+              src={imageUrl}
+              alt="User's photo"
+              className="image-upload__photo"
+            />
           </div>
+        ) : (
+          <img src={photo} alt="User's photo" className="image-upload__photo" />
         )}
-        {progress > 0 && <p>Upload Progress: {progress}%</p>}
-        <input type="file" onChange={handleFileChange} />
+        {progress > 0 && progress < 100 && (
+          <p>Upload Progress: {Math.round(progress)}%</p>
+        )}
+        <label htmlFor="file-upload" className="custom-file-upload">
+          Choose a file
+        </label>
+        <input type="file" id="file-upload" onChange={handleFileChange} />
       </div>
-      <button onClick={handleUpload}>Upload New</button>
+      <button
+        onClick={handleUpload}
+        className="image-upload__button image-upload__button--upload"
+      >
+        Upload New
+      </button>
     </div>
   );
 };
