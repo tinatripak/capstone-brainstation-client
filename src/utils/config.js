@@ -5,6 +5,7 @@ const storage_buckey = import.meta.env.VITE_STORAGE_BUCKET;
 const messaging_sender_id = import.meta.env.VITE_MESSAGING_SENDER_ID;
 const app_id = import.meta.env.VITE_APP_ID;
 const api_url = import.meta.env.VITE_API_URL;
+const ninjas_api_url = import.meta.env.VITE_NINJAS_API_KEY;
 
 export {
   api_key,
@@ -14,4 +15,5 @@ export {
   messaging_sender_id,
   app_id,
   api_url,
+  ninjas_api_url,
 };
