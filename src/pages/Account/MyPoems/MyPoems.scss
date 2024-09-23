@@ -1,0 +1,178 @@
+@import "../../../styles/global.scss";
+
+.poem-wrapper {
+  .account-poems {
+    &__create-heading,
+    &__own-heading {
+      text-align: center;
+      font-size: 1.5rem;
+      text-transform: capitalize;
+    }
+    &__label {
+      display: flex;
+      flex-direction: column;
+      margin-top: 2rem;
+    }
+    input,
+    textarea {
+      padding: 1rem;
+      border: 1px solid $light-gray;
+    }
+    textarea {
+      resize: none;
+      height: 24rem;
+    }
+    &__button {
+      margin-top: 2rem;
+      padding: 0.8rem 3rem;
+      background-color: $pink;
+      border: 1px solid $pink;
+      &:hover {
+        background-color: $dark-pink;
+      }
+    }
+    &__form {
+      margin: 2rem 0;
+    }
+    &__list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    &__poem-heading {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    &__poem-icons {
+      display: flex;
+      gap: 1rem;
+    }
+    &__poem {
+      background-color: $white;
+      padding: 2rem 1rem;
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    }
+    &__poem-title {
+      text-decoration: underline;
+    }
+    &__poem-icon {
+      cursor: pointer;
+      &--edit {
+        &:hover {
+          color: $yellow;
+        }
+      }
+      &--remove {
+        &:hover {
+          color: $red;
+        }
+      }
+    }
+    .error-message {
+      color: $red;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+  .bot {
+    position: fixed;
+    bottom: 1.55rem;
+    right: 1.55rem;
+    background-color: $white;
+    border-radius: 50%;
+    padding: 0.9rem 1rem;
+    box-shadow: 0 0.125rem 0.313rem 0 rgba($black, 0.1);
+    cursor: pointer;
+    &:hover {
+      background-color: $pink;
+    }
+  }
+  .bot-window {
+    position: fixed;
+    bottom: 7rem;
+    right: 1.55rem;
+    width: 20rem;
+    height: 25rem;
+    background-color: $account-gray-bg;
+    border: 1rem solid $pink;
+    box-shadow: 0 0.125rem 0.313rem 0 rgba($black, 0.2);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 4;
+    &__heading {
+      display: flex;
+      justify-content: space-between;
+    }
+    &__icon {
+      cursor: pointer;
+    }
+    &__chat {
+      margin-top: 1rem;
+      background-color: $white;
+      height: 100%;
+    }
+    &__question {
+      text-decoration: underline;
+      margin-top: 1rem;
+    }
+
+    &__input-section {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+
+      input {
+        flex: 1;
+        padding: 0.5rem;
+        border: 1px solid $light-gray;
+      }
+
+      button {
+        padding: 0.5rem 1rem;
+        background-color: $pink;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $dark-pink;
+        }
+      }
+    }
+
+    &__chat {
+      margin-top: 1rem;
+      background-color: $white;
+      height: 70%;
+      padding: 0.5rem;
+      overflow-y: auto;
+    }
+
+    &__message {
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border-radius: 5px;
+      ul {
+        padding: 0 2rem;
+      }
+    }
+
+    .user-message {
+      text-align: right;
+      background-color: rgba($pink, 0.5);
+    }
+
+    .bot-message {
+      text-align: left;
+      background-color: rgba($light-blue, 0.5);
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
