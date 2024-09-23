@@ -1,0 +1,37 @@
+@import "../../styles/global.scss";
+
+.image-upload {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  &__photo-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  &__photo {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+  }
+  &__button {
+    &--upload {
+      border: 0;
+      background-color: $light-gray;
+      padding: 1rem 2rem;
+    }
+  }
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  background-color: $white;
+  border: 1px solid $light-gray;
+  display: inline-block;
+  padding: 6px 12px;
+  text-align: center;
+  cursor: pointer;
+}
