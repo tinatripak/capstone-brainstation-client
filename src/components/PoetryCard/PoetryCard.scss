@@ -38,19 +38,25 @@
     align-items: center;
     a {
       color: $gray-text-color;
-      transition: transform 0.3s ease;
       display: flex;
       align-items: center;
+      &:hover .poetry-card__arrow-icon {
+        transform: translateX(0.25rem);
+      }
     }
   }
   &__like {
-    color: $red;
+    color: $dark-gray;
     cursor: pointer;
     &:hover {
       animation: beat 0.6s infinite alternate;
+      color: $red;
+    }
+    &--liked {
+      color: $red;
     }
   }
-  &:hover &__arrow-icon {
-    transform: translateX(0.25rem);
+  &__arrow-icon {
+    transition: transform 0.3s ease;
   }
 }
