@@ -1,8 +1,12 @@
+import { useEffect } from "react";
 import authBg from "../../assets/images/auth-bg.png";
 import SignInForm from "../../components/SignInForm/SignInForm";
 import "./SignIn.scss";
 
 const SignIn = () => {
+  useEffect(() => {
+    document.title = "Sign In";
+  }, []);
   return (
     <div className="sign-in">
       <div className="sign-in__wrapper">
