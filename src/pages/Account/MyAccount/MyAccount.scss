@@ -1,0 +1,52 @@
+@import "../../../styles/global.scss";
+
+.my-account {
+  img {
+    width: 15rem;
+    border-radius: 50%;
+  }
+  &__form {
+    margin-top: 2rem;
+  }
+  &__first {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    p {
+      width: 50%;
+    }
+  }
+  &__second {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    p {
+      width: 50%;
+    }
+  }
+  p {
+    padding: 1rem;
+    border: 1px solid $light-gray;
+  }
+  &__buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  &__button {
+    padding: 0.8rem 2rem;
+    border: 0;
+    &--cancel {
+      background-color: transparent;
+      &:hover {
+        font-weight: 700;
+      }
+    }
+    &--save {
+      background-color: $pink;
+      border: 1px solid $pink;
+      &:hover {
+        background-color: $dark-pink;
+      }
+    }
+  }
+}
