@@ -1,0 +1,58 @@
+@import "../../../styles/global.scss";
+
+.edit-account {
+  &__form {
+    margin-top: 2rem;
+  }
+  &__first {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 1rem;
+  }
+  &__first-name,
+  &__last-name {
+    width: 50%;
+    input {
+      width: -webkit-fill-available;
+    }
+  }
+  &__second {
+    margin-bottom: 1rem;
+    input {
+      width: -webkit-fill-available;
+    }
+  }
+  input {
+    padding: 1rem;
+    border: 1px solid $light-gray;
+  }
+  &__buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  &__button {
+    padding: 0.8rem 2rem;
+    border: 0;
+    &--cancel {
+      background-color: transparent;
+      &:hover {
+        font-weight: 700;
+      }
+    }
+    &--save {
+      background-color: $pink;
+      border: 1px solid $pink;
+      &:hover {
+        background-color: $dark-pink;
+      }
+    }
+  }
+  .error-message {
+    color: $red;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
