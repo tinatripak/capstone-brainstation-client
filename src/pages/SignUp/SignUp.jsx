@@ -1,8 +1,12 @@
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import authBg from "../../assets/images/auth-bg.png";
 import "./SignUp.scss";
+import { useEffect } from "react";
 
 const SignUp = () => {
+  useEffect(() => {
+    document.title = "Sign Up";
+  }, []);
   return (
     <div className="sign-up">
       <div className="sign-up__wrapper">

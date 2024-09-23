@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import flowerStory from "../../assets/images/flower-story.png";
 import "./AboutUs.scss";
 
 const AboutUs = () => {
+  useEffect(() => {
+    document.title = "About Us";
+  }, []);
   return (
     <div className="about">
       <h1 className="about__heading">My Story</h1>

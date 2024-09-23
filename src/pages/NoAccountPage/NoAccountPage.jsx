@@ -1,11 +1,10 @@
 import { useEffect } from "react";
-import "./NotFound.scss";
 
-const NotFound = () => {
+const NoAccountPage = () => {
   useEffect(() => {
     document.title = "Not Found";
   }, []);
   return <div>NotFound</div>;
 };
 
-export default NotFound;
+export default NoAccountPage;
