@@ -28,6 +28,15 @@ export const getPoemsByAuthor = async (id) => {
   }
 };
 
+export const getFavPoems = async (id) => {
+  try {
+    const response = await axios.get(`${api_url}/poetry/${id}/fav-poems`);
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching fav poems by userId ${id}: ${error}`);
+  }
+};
+
 export const postPoem = async (newPoem, token) => {
   try {
     const response = await axios.post(`${api_url}/poetry`, newPoem, {
@@ -43,6 +52,7 @@ export const postPoem = async (newPoem, token) => {
 
 export const updatePoem = async (id, updatedPoem, token) => {
   try {
+    console.log(id, updatedPoem, token);
     const response = await axios.put(`${api_url}/poetry/${id}`, updatedPoem, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -63,5 +73,22 @@ export const deletePoem = async (id, token) => {
     });
   } catch (error) {
     console.error(`Error deleting a poem: ${error}`);
+  }
+};
+
+export const likeOrUnlikePoem = async (id, token) => {
+  try {
+    const response = await axios.put(
+      `${api_url}/poetry/${id}/like`,
+      {},
+      {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error(`Error updating a poem by ${id}: ${error}`);
   }
 };
