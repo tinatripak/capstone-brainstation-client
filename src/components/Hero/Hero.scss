@@ -1,0 +1,50 @@
+.hero {
+  position: relative;
+  min-height: calc(100vh - 12.276rem);
+  height: 100%;
+
+  &__heading {
+    text-transform: uppercase;
+    font-size: 8rem;
+    font-weight: 100;
+    letter-spacing: 4.6rem;
+    line-height: 7rem;
+    &--second {
+      padding-left: 5vw;
+      margin-top: 4rem;
+    }
+  }
+  &__image-item {
+    &--bottom {
+      img {
+        width: 35rem;
+      }
+    }
+
+    &--top {
+      z-index: 1;
+      bottom: 0;
+      left: -15rem;
+      position: absolute;
+      img {
+        width: 20rem;
+      }
+    }
+  }
+
+  &__text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    span {
+      display: block;
+    }
+  }
+  &__image-stack {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+  }
+}

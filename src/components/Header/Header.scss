@@ -1,0 +1,15 @@
+@import "../../styles/global.scss";
+
+.header {
+  padding: 1.55rem 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: sticky;
+  top: 0;
+  background-color: $white;
+  z-index: 2;
+
+  border-bottom: 1px solid $pink;
+}

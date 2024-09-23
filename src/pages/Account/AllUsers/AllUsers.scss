@@ -1,0 +1,49 @@
+@import "../../../styles/global.scss";
+
+.all-users {
+  h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba($black, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+
+    th,
+    td {
+      padding: 12px;
+      text-align: left;
+      font-size: 16px;
+    }
+
+    th {
+      background-color: $dark-pink;
+      color: $white;
+      font-weight: bold;
+    }
+
+    tr:hover {
+      background-color: rgba($pink, 0.4);
+    }
+
+    button {
+      background-color: $red;
+      color: $white;
+      border: none;
+      border-radius: 4px;
+      padding: 0.8rem 1.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: $red;
+      }
+    }
+  }
+}

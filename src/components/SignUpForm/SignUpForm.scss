@@ -1,0 +1,16 @@
+@import "../../styles/global.scss";
+
+.sign-up {
+  @include sign-form-styles;
+
+  .error-message {
+    color: $red;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  button {
+    margin-top: 1rem;
+  }
+}

@@ -1,0 +1,12 @@
+.poetry {
+  padding: 0 6rem 4rem 6rem;
+  min-height: calc(100vh - 12.276rem);
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 4rem;
+    margin: 8rem 0;
+  }
+}

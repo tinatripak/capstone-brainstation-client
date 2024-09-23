@@ -1,0 +1,8 @@
+@import "../../styles/global.scss";
+
+.logo {
+  @include link-styles;
+  &__image {
+    width: 8rem;
+  }
+}

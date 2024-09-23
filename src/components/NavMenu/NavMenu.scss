@@ -1,0 +1,47 @@
+@import "../../styles/global.scss";
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  &__link {
+    &--login {
+      padding: 0.5rem 1.5rem;
+      background-color: $pink;
+      border-radius: 1rem;
+    }
+    &--account {
+      img {
+        border-radius: 50%;
+        width: 3rem;
+      }
+    }
+    @include link-styles;
+  }
+  .menu__account {
+    position: relative;
+
+    .menu__logout {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: $white;
+      padding: 1rem 2rem;
+      white-space: nowrap;
+      box-shadow: 0 4px 8px rgba($black, 0.1);
+      display: none;
+      z-index: 1;
+    }
+
+    &:hover .menu__logout {
+      display: block;
+    }
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,83 @@
+@import "../../styles/global.scss";
+
+.wrapper {
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba($black, 0.1);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+}
+.delete-modal {
+  border-radius: 0.25rem;
+  background-color: $white;
+  box-shadow: 0 0.125rem 0.313rem 0 rgba($black, 0.1);
+  padding: 3.75rem 1rem 1.5rem 1rem;
+  width: 34rem;
+  top: 10rem;
+  height: auto;
+  padding: 2.5rem 4rem;
+  position: fixed;
+
+  &____inner {
+    position: relative;
+    width: 100%;
+  }
+  &__popup-button {
+    border: none;
+    background-color: transparent;
+    align-self: flex-end;
+    justify-self: flex-start;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+  &__heading {
+    margin-bottom: 1rem;
+  }
+  &__container {
+    margin-bottom: 0.5em;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 1rem;
+    bottom: 1rem;
+    right: 1rem;
+    width: 100%;
+    left: 1rem;
+  }
+  &__close-icon {
+    display: flex;
+  }
+  &__button {
+    width: auto;
+    padding: 0.8rem 1.5rem;
+    &--cancel {
+      color: $gray-text-color;
+      border: 0.063rem solid $light-gray;
+      background-color: $white;
+      &:hover {
+        color: $black;
+        border: 0.063rem solid $black;
+        background-color: $white;
+      }
+    }
+    &--delete {
+      color: $white;
+      border: 0.063rem solid $red;
+      background-color: $red;
+      &:hover {
+        background-color: $dark-red;
+        border: 0.063rem solid $dark-red;
+      }
+    }
+  }
+}
