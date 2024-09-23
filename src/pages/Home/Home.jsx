@@ -1,9 +1,13 @@
+import { useEffect } from "react";
 import Hero from "../../components/Hero/Hero";
 import HomePoem from "../../components/HomePoem/HomePoem";
 import PoetrySoul from "../../components/PoetrySoul/PoetrySoul";
 import "./Home.scss";
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "Home";
+  }, []);
   return (
     <div className="home">
       <div className="home__wrapper">
