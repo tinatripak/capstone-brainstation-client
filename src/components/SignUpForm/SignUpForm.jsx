@@ -61,6 +61,7 @@ const SignUpForm = () => {
         toast.error("Check all the fields and try again");
       }
     } catch (error) {
+      toast.error("Registration failed");
       console.error("Signup failed:", error);
     }
   };

@@ -4,6 +4,7 @@ import "./SignInForm.scss";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { HiMiniExclamationCircle } from "react-icons/hi2";
+import { toast } from "react-toastify";
 
 const SignInForm = () => {
   const [email, setEmail] = useState("");
@@ -44,6 +45,7 @@ const SignInForm = () => {
       });
       navigate("/account");
     } catch (error) {
+      toast.error("The user doesn't exist");
       console.error("Login failed:", error);
     }
   };
