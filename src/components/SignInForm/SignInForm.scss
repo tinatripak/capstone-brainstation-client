@@ -2,4 +2,15 @@
 
 .sign-in {
   @include sign-form-styles;
+
+  .error-message {
+    color: $red;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  &__form-field {
+    margin-bottom: 1rem;
+  }
 }
