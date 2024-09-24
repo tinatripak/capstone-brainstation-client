@@ -19,16 +19,16 @@ const Poetry = () => {
     setIsLoading(false);
   };
 
-  useEffect(() => {
-    document.title = "Poems";
-    fetchPoetries();
-  }, []);
-
   const loadMorePoetries = () => {
     if (visiblePoetriesCount < poetries.length) {
       setVisiblePoetriesCount((prevCount) => prevCount + 3);
     }
   };
+
+  useEffect(() => {
+    document.title = "Poems";
+    fetchPoetries();
+  }, []);
 
   return (
     <>

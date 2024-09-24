@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
 import { login } from "../../scripts/auth-api";
-import "./SignInForm.scss";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { HiMiniExclamationCircle } from "react-icons/hi2";
 import { toast } from "react-toastify";
+import "./SignInForm.scss";
 
 const SignInForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+
   const [formErrors, setFormErrors] = useState({
     email: false,
     password: false,
   });
-  const navigate = useNavigate();
-  const [cookies, setCookie, removeCookie] = useCookies(["token"]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

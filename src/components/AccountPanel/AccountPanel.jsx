@@ -25,15 +25,15 @@ const AccountPanel = () => {
     setUserRole(role);
   };
 
+  const linkClickHandler = () => {
+    setIsMenuOpen(false);
+  };
+
   useEffect(() => {
     if (cookies.token) {
       validateToken();
     }
   }, [cookies.token]);
-
-  const linkClickHandler = () => {
-    setIsMenuOpen(false);
-  };
 
   return (
     <div className="account-panel">

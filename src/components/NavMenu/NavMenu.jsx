@@ -3,9 +3,9 @@ import { useCookies } from "react-cookie";
 import { useEffect, useState } from "react";
 import { checkToken, getUserById } from "../../scripts/auth-api";
 import defaultUserPhoto from "../../assets/images/default-user-photo.jpg";
-import "./NavMenu.scss";
 import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
+import "./NavMenu.scss";
 
 const NavMenu = () => {
   const [cookies, removeCookie] = useCookies(["token"]);
@@ -19,6 +19,21 @@ const NavMenu = () => {
 
   const menuToggleHandler = () => {
     setMenuOpen((p) => !p);
+  };
+
+  const validateToken = async () => {
+    const responseToken = await checkToken(cookies.token);
+    const { data } = await getUserById(responseToken.user.id);
+    setUser(data);
+  };
+
+  const handleLogout = () => {
+    removeCookie("token");
+    setUser({});
+  };
+
+  const linkClickHandler = () => {
+    setMenuOpen(false);
   };
 
   useEffect(() => {
@@ -39,26 +54,11 @@ const NavMenu = () => {
     }
   }, [size.width]);
 
-  const validateToken = async () => {
-    const responseToken = await checkToken(cookies.token);
-    const { data } = await getUserById(responseToken.user.id);
-    setUser(data);
-  };
-
-  const handleLogout = () => {
-    removeCookie("token");
-    setUser({});
-  };
-
   useEffect(() => {
     if (cookies?.token) {
       validateToken();
     }
   }, [cookies?.token]);
-
-  const linkClickHandler = () => {
-    setMenuOpen(false);
-  };
 
   return (
     <div className="header-wrapper">

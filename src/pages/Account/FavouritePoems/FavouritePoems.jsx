@@ -3,8 +3,8 @@ import { getFavPoems, likeOrUnlikePoem } from "../../../scripts/poetry-api";
 import { FaHeart } from "react-icons/fa";
 import { useCookies } from "react-cookie";
 import { toast } from "react-toastify";
-import "./FavouritePoems.scss";
 import Loading from "../../../components/Loading/Loading";
+import "./FavouritePoems.scss";
 
 const FavouritePoems = ({ userId }) => {
   const [favPoems, setFavPoems] = useState([]);
@@ -16,16 +16,6 @@ const FavouritePoems = ({ userId }) => {
     setFavPoems(data);
     setIsLoading(false);
   };
-
-  useEffect(() => {
-    document.title = "Favourite Poems";
-  }, []);
-
-  useEffect(() => {
-    if (userId) {
-      fetchFavPoems();
-    }
-  }, [userId]);
 
   const unlikePoem = async (id) => {
     const { data } = await likeOrUnlikePoem(id, cookies?.token);
@@ -39,6 +29,16 @@ const FavouritePoems = ({ userId }) => {
       toast.error(`The poem ${data.title} was unliked`);
     }
   };
+
+  useEffect(() => {
+    document.title = "Favourite Poems";
+  }, []);
+
+  useEffect(() => {
+    if (userId) {
+      fetchFavPoems();
+    }
+  }, [userId]);
 
   return (
     <>

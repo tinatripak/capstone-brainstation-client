@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "./AllUsers.scss";
 import {
   checkToken,
   deleteUserById,
@@ -10,6 +9,7 @@ import { useCookies } from "react-cookie";
 import { toast } from "react-toastify";
 import { AiOutlineDelete } from "react-icons/ai";
 import DeleteModal from "../../../components/DeleteModal/DeleteModal";
+import "./AllUsers.scss";
 
 const AllUsers = () => {
   const [users, setUsers] = useState([]);
@@ -21,14 +21,6 @@ const AllUsers = () => {
   const [filteredUsers, setFilteredUsers] = useState([]);
   const availableRoles = ["user", "admin", "super-admin"];
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      const { data } = await getUsers(cookies?.token);
-      setUsers(data);
-    };
-    fetchUsers();
-  }, []);
-
   const validateToken = async () => {
     const { user } = await checkToken(cookies.token);
     setIsSuperAdmin(user.role === "super-admin" ? true : false);
@@ -36,12 +28,6 @@ const AllUsers = () => {
       ? setFilteredUsers(users.filter((u) => u._id !== user.id))
       : setFilteredUsers(users.filter((user) => user.role === "user"));
   };
-
-  useEffect(() => {
-    if (cookies.token) {
-      validateToken();
-    }
-  }, [cookies.token, users]);
 
   const handleDelete = async (userId) => {
     try {
@@ -75,6 +61,20 @@ const AllUsers = () => {
       console.error("Failed to update user role:", error);
     }
   };
+
+  useEffect(() => {
+    if (cookies.token) {
+      validateToken();
+    }
+  }, [cookies.token, users]);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const { data } = await getUsers(cookies?.token);
+      setUsers(data);
+    };
+    fetchUsers();
+  }, []);
 
   return (
     <div className="all-users">
