@@ -1,5 +1,6 @@
 @import "../../styles/global.scss";
 
 .noaccount-found {
+  height: calc(100vh - 15rem) !important;
   @include not-found-styles;
 }
