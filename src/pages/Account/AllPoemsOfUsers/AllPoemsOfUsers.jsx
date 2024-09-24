@@ -1,6 +1,5 @@
 import { toast } from "react-toastify";
 import { deletePoem, getPoetry } from "../../../scripts/poetry-api";
-import "./AllPoemsOfUsers.scss";
 import Loading from "../../../components/Loading/Loading";
 import DeleteModal from "../../../components/DeleteModal/DeleteModal";
 import { AiOutlineDelete } from "react-icons/ai";
@@ -20,11 +19,6 @@ const AllPoemsOfUsers = () => {
     setPoems(data);
   };
 
-  useEffect(() => {
-    fetchPoems();
-    setIsLoading(false);
-  }, []);
-
   const removePoem = async (id) => {
     try {
       await deletePoem(id, cookies?.token);
@@ -35,6 +29,11 @@ const AllPoemsOfUsers = () => {
       console.error(err);
     }
   };
+
+  useEffect(() => {
+    fetchPoems();
+    setIsLoading(false);
+  }, []);
 
   return (
     <>

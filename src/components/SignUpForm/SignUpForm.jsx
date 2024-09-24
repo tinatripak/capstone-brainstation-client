@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { register } from "../../scripts/auth-api";
-import "./SignUpForm.scss";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { HiMiniExclamationCircle } from "react-icons/hi2";
+import "./SignUpForm.scss";
 
 const SignUpForm = () => {
   const [lastName, setLastName] = useState("");
@@ -65,6 +65,7 @@ const SignUpForm = () => {
       console.error("Signup failed:", error);
     }
   };
+
   return (
     <form className="sign-up__form" onSubmit={handleSubmit}>
       <input

@@ -1,7 +1,7 @@
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import authBg from "../../assets/images/auth-bg.png";
-import "./SignUp.scss";
 import { useEffect } from "react";
+import "./SignUp.scss";
 
 const SignUp = () => {
   useEffect(() => {

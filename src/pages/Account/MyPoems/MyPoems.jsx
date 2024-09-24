@@ -39,17 +39,6 @@ const MyPoems = ({ userId }) => {
     setPoems(data);
   };
 
-  useEffect(() => {
-    if (userId) {
-      fetchOwnPoems();
-      setIsLoading(false);
-    }
-  }, [userId]);
-
-  useEffect(() => {
-    document.title = "My Poems";
-  }, []);
-
   const addNewPoem = async (e) => {
     e.preventDefault();
     setTitleError(false);
@@ -138,6 +127,17 @@ const MyPoems = ({ userId }) => {
         chatContainerRef.current.scrollHeight;
     }
   }, [chatMessages]);
+
+  useEffect(() => {
+    if (userId) {
+      fetchOwnPoems();
+      setIsLoading(false);
+    }
+  }, [userId]);
+
+  useEffect(() => {
+    document.title = "My Poems";
+  }, []);
 
   return (
     <>

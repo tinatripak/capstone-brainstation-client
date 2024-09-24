@@ -2,11 +2,16 @@
 
 .footer {
   background-color: $footer-bg;
-  padding: 3rem 6rem;
+  padding: 3rem;
+  @include breakpoint(desktop) {
+    padding: 3rem 6rem;
+  }
 
   &__content {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    gap: 1rem;
   }
 
   .menu {
@@ -22,7 +27,11 @@
   }
   .logo {
     &__image {
+      margin: 2rem 0;
       mix-blend-mode: darken;
+      @include breakpoint(tablet) {
+        margin: 0;
+      }
     }
   }
   &__copyright {

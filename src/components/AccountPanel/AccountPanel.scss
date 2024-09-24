@@ -3,16 +3,52 @@
 .account-panel {
   display: flex;
   min-height: calc(100vh - 6.4rem);
+  position: relative;
   &__menu {
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 3rem 0 3rem 6rem;
+    display: none;
+    &.open {
+      display: block;
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 3rem;
+      background-color: $white;
+      position: absolute;
+      margin-left: 2rem;
+      height: -webkit-fill-available;
+      z-index: 1;
+    }
+    @include breakpoint(desktop) {
+      width: 20%;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 3rem;
+      padding: 3rem 0 3rem 6rem;
+    }
   }
   &__main {
-    padding: 3rem 6rem 3rem 3rem;
-    width: 80%;
+    padding: 3rem 3rem 3rem 1rem;
+    font-size: 0.7rem;
+    width: 100%;
     background-color: $account-gray-bg;
+    @include breakpoint(tablet) {
+      font-size: 1rem;
+    }
+    @include breakpoint(desktop) {
+      width: 80%;
+      padding: 3rem 6rem 3rem 3rem;
+    }
+  }
+  &__hamburger {
+    background-color: $white;
+    border: 0;
+    font-size: 2rem;
+    display: flex;
+    padding-top: 3rem;
+    @include breakpoint(desktop) {
+      display: none;
+    }
   }
 }

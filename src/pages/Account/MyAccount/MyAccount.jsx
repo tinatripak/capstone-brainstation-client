@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { getUserById } from "../../../scripts/auth-api";
 import { Link } from "react-router-dom";
-import "./MyAccount.scss";
 import Loading from "../../../components/Loading/Loading";
 import defaultUserPhoto from "../../../assets/images/default-user-photo.jpg";
+import "./MyAccount.scss";
 
 const MyAccount = ({ userId }) => {
   const [user, setUser] = useState({});

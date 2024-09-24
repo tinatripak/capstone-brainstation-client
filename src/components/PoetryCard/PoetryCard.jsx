@@ -2,11 +2,11 @@ import { FaHeart } from "react-icons/fa";
 import { RiArrowRightSLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import { getPoem, getPoetry, likeOrUnlikePoem } from "../../scripts/poetry-api";
-import "./PoetryCard.scss";
+import { getPoem, likeOrUnlikePoem } from "../../scripts/poetry-api";
 import { useEffect, useState } from "react";
 import { checkToken } from "../../scripts/auth-api";
 import { toast } from "react-toastify";
+import "./PoetryCard.scss";
 
 const PoetryCard = ({ id, author, date, title, text }) => {
   const [cookies] = useCookies(["token"]);
@@ -23,19 +23,12 @@ const PoetryCard = ({ id, author, date, title, text }) => {
     userLike ? setIsLikedPoem(true) : setIsLikedPoem(false);
   };
 
-  useEffect(() => {
-    if (cookies.token) {
-      validateToken();
-    }
-  }, [cookies.token]);
-
   const onClickLike = async () => {
     try {
       if (cookies?.token) {
         const data = await likeOrUnlikePoem(id, cookies?.token);
         if (data && data.success) {
           setIsLikedPoem((prev) => !prev);
-          console.log(data);
           if (isLikedPoem) {
             toast.error(`Poem '${data.data.title}' was unliked`);
           } else {
@@ -50,6 +43,12 @@ const PoetryCard = ({ id, author, date, title, text }) => {
       console.error(err);
     }
   };
+
+  useEffect(() => {
+    if (cookies.token) {
+      validateToken();
+    }
+  }, [cookies.token]);
 
   return (
     <div className="poetry-card">
