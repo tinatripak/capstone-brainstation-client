@@ -5,7 +5,6 @@ import DeleteModal from "../../../components/DeleteModal/DeleteModal";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
-import "./AllPoemsOfUsers.scss";
 
 const AllPoemsOfUsers = () => {
   const [cookies] = useCookies(["token"]);
