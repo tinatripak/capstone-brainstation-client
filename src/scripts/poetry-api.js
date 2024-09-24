@@ -52,7 +52,6 @@ export const postPoem = async (newPoem, token) => {
 
 export const updatePoem = async (id, updatedPoem, token) => {
   try {
-    console.log(id, updatedPoem, token);
     const response = await axios.put(`${api_url}/poetry/${id}`, updatedPoem, {
       headers: {
         Authorization: `Bearer ${token}`,
