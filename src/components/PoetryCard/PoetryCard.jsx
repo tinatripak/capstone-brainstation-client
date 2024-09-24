@@ -35,7 +35,6 @@ const PoetryCard = ({ id, author, date, title, text }) => {
         const data = await likeOrUnlikePoem(id, cookies?.token);
         if (data && data.success) {
           setIsLikedPoem((prev) => !prev);
-          console.log(data);
           if (isLikedPoem) {
             toast.error(`Poem '${data.data.title}' was unliked`);
           } else {
