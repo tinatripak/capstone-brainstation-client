@@ -44,16 +44,18 @@
     position: relative;
 
     .menu__logout {
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: $white;
-      padding: 1rem 2rem;
-      white-space: nowrap;
-      box-shadow: 0 4px 8px rgba($black, 0.1);
-      display: none;
-      z-index: 1;
+      @include breakpoint(tablet) {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: $white;
+        padding: 1rem 2rem;
+        white-space: nowrap;
+        box-shadow: 0 4px 8px rgba($black, 0.1);
+        display: none;
+        z-index: 1;
+      }
     }
 
     &:hover .menu__logout {
@@ -70,6 +72,7 @@
 
 .header-wrapper {
   &__menu {
+    font-size: 2rem;
     @include breakpoint(tablet) {
       display: none;
     }

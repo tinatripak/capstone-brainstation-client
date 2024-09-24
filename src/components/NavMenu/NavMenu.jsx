@@ -113,10 +113,16 @@ const NavMenu = () => {
                 <img src={defaultUserPhoto} alt={user.nickName} />
               )}
             </NavLink>
-            {showLogout && (
+            {size.width <= 769 ? (
               <div className="menu__logout">
-                <button onClick={handleLogout}>Logout</button>
+                <div onClick={handleLogout}>Logout</div>
               </div>
+            ) : (
+              showLogout && (
+                <div className="menu__logout">
+                  <button onClick={handleLogout}>Logout</button>
+                </div>
+              )
             )}
           </div>
         ) : (
