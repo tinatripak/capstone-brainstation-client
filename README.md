@@ -24,7 +24,7 @@ Everybody needs a supportive space where they can share their poetry and persona
 
 - As a user, I want to be able to view all the poems
 - As a user, I want to be able to find details of the poem
-- As a user, I want to be able to see the history if the website
+- As a user, I want to be able to see the history of the website
 
 - As a user, I want to be able to create an account to manage my poems
 - As a user, I want to be able to login to my account to manage my poems
@@ -38,6 +38,11 @@ Everybody needs a supportive space where they can share their poetry and persona
 - As a logged in user, I want to view the favourite poems
 - As a logged in user, I want to unlike the favourite poem
 - As a logged in user, I want to like the poem
+
+- As an admin, I want to delete any poem
+- As an admin, I want to delete a user
+
+- As a super-admin, I want to manage all the users and admins
 
 ## Implementation
 
@@ -63,7 +68,7 @@ Everybody needs a supportive space where they can share their poetry and persona
 
 ### APIs
 
-- No external APIs will be used.
+- https://api-ninjas.com/api/rhyme will be used for getting thymes to the specific word 
 
 ### Sitemap
 
