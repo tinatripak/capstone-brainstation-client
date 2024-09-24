@@ -18,11 +18,16 @@
   background-color: $white;
   box-shadow: 0 0.125rem 0.313rem 0 rgba($black, 0.1);
   padding: 3.75rem 1rem 1.5rem 1rem;
-  width: 34rem;
-  top: 10rem;
-  height: auto;
+
   padding: 2.5rem 4rem;
   position: fixed;
+  height: 100vh;
+  top: 0;
+  @include breakpoint(tablet) {
+    height: auto;
+    top: 10rem;
+    width: 34rem;
+  }
 
   &____inner {
     position: relative;
