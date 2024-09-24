@@ -1,12 +1,18 @@
 @import "../../styles/global.scss";
 
 .page-heading {
-  font-size: 5rem;
-  width: 30rem;
+  font-size: 3rem;
   margin: 0 auto;
   padding-top: 2rem;
-  &__content {
+  @include breakpoint(tablet) {
     font-size: 5rem;
+    width: 30rem;
+  }
+  &__content {
+    font-size: 3rem;
+    @include breakpoint(tablet) {
+      font-size: 5rem;
+    }
     &--second {
       text-align: end;
     }

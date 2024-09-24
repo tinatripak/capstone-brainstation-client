@@ -1,12 +1,22 @@
+@import "../../styles/global.scss";
+
 .poetry {
-  padding: 0 6rem 4rem 6rem;
+  padding: 0 3rem 4rem 3rem;
   min-height: calc(100vh - 12.276rem);
+
+  @include breakpoint(desktop) {
+    padding: 0 6rem 4rem 6rem;
+  }
 
   &__content {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
+    justify-content: space-between;
     gap: 4rem;
-    margin: 8rem 0;
+    margin: 4rem 0;
+    @include breakpoint(desktop) {
+      margin: 8rem 0;
+    }
   }
 }

@@ -3,6 +3,7 @@
 .my-account {
   img {
     width: 15rem;
+    height: 15rem;
     border-radius: 50%;
   }
   &__form {
@@ -10,18 +11,32 @@
   }
   &__first {
     display: flex;
+    flex-direction: column;
     gap: 2rem;
     margin-bottom: 1rem;
+    @include breakpoint(desktop) {
+      flex-direction: row;
+    }
     p {
-      width: 50%;
+      width: auto;
+      @include breakpoint(desktop) {
+        width: 50%;
+      }
     }
   }
   &__second {
     display: flex;
+    flex-direction: column;
     gap: 2rem;
     margin-bottom: 1rem;
+    @include breakpoint(desktop) {
+      flex-direction: row;
+    }
     p {
-      width: 50%;
+      width: auto;
+      @include breakpoint(desktop) {
+        width: 50%;
+      }
     }
   }
   p {

@@ -1,7 +1,7 @@
 @import "../../styles/global.scss";
 
 .header {
-  padding: 1.55rem 6rem;
+  padding: 1.55rem 3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,4 +12,8 @@
   z-index: 2;
 
   border-bottom: 1px solid $pink;
+
+  @include breakpoint(desktop) {
+    padding: 1.55rem 6rem;
+  }
 }

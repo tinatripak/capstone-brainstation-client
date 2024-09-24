@@ -4,6 +4,11 @@
       @content;
     }
   }
+  @if $point == burger {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
   @if $point == desktop {
     @media (min-width: $desktop-breakpoint) {
       @content;

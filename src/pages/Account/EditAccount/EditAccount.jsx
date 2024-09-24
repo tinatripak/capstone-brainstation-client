@@ -7,7 +7,6 @@ import { toast } from "react-toastify";
 import Loading from "../../../components/Loading/Loading";
 import { HiMiniExclamationCircle } from "react-icons/hi2";
 import defaultUserPhoto from "../../../assets/images/default-user-photo.jpg";
-
 import "./EditAccount.scss";
 
 const EditAccount = ({ userId }) => {
@@ -31,16 +30,6 @@ const EditAccount = ({ userId }) => {
     setPhoto(data?.photo || "");
     setIsLoading(false);
   };
-
-  useEffect(() => {
-    if (userId) {
-      fetchUser();
-    }
-  }, [userId]);
-
-  useEffect(() => {
-    document.title = "Edit My Account";
-  }, []);
 
   const cancelEdit = () => {
     navigate("/account");
@@ -79,6 +68,16 @@ const EditAccount = ({ userId }) => {
       console.error(err);
     }
   };
+
+  useEffect(() => {
+    if (userId) {
+      fetchUser();
+    }
+  }, [userId]);
+
+  useEffect(() => {
+    document.title = "Edit My Account";
+  }, []);
 
   return (
     <>

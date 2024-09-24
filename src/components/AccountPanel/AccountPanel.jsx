@@ -1,4 +1,7 @@
 import { NavLink, Route, Routes } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import { useEffect, useState } from "react";
+import { checkToken } from "../../scripts/auth-api";
 import EditAccount from "../../pages/Account/EditAccount/EditAccount";
 import MyAccount from "../../pages/Account/MyAccount/MyAccount";
 import MyPoems from "../../pages/Account/MyPoems/MyPoems";
@@ -6,9 +9,6 @@ import EditPoem from "../../pages/Account/EditPoem/EditPoem";
 import FavouritePoems from "../../pages/Account/FavouritePoems/FavouritePoems";
 import ProtectedRoute from "../../components/ProtectedRoute/ProtectedRoute";
 import NoAccountPage from "../../pages/NoAccountPage/NoAccountPage";
-import { useCookies } from "react-cookie";
-import { useEffect, useState } from "react";
-import { checkToken } from "../../scripts/auth-api";
 import AllPoemsOfUsers from "../../pages/Account/AllPoemsOfUsers/AllPoemsOfUsers";
 import AllUsers from "../../pages/Account/AllUsers/AllUsers";
 import "./AccountPanel.scss";
@@ -16,12 +16,17 @@ import "./AccountPanel.scss";
 const AccountPanel = () => {
   const [cookies] = useCookies(["token"]);
   const [userRole, setUserRole] = useState("user");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const validateToken = async () => {
     const {
       user: { role },
     } = await checkToken(cookies.token);
     setUserRole(role);
+  };
+
+  const linkClickHandler = () => {
+    setIsMenuOpen(false);
   };
 
   useEffect(() => {
@@ -32,29 +37,39 @@ const AccountPanel = () => {
 
   return (
     <div className="account-panel">
-      <div className="account-panel__menu">
+      <button
+        className="account-panel__hamburger"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        ☰
+      </button>
+
+      <div className={`account-panel__menu ${isMenuOpen ? "open" : ""}`}>
         <NavLink
           to={"/account"}
           end
           className={({ isActive }) =>
-            `menu__link  ${isActive ? "menu__link--active" : ""}`
+            `menu__link ${isActive ? "menu__link--active" : ""}`
           }
+          onClick={linkClickHandler}
         >
           My account
         </NavLink>
         <NavLink
           to={"/account/poems"}
           className={({ isActive }) =>
-            `menu__link  ${isActive ? "menu__link--active" : ""}`
+            `menu__link ${isActive ? "menu__link--active" : ""}`
           }
+          onClick={linkClickHandler}
         >
           My poems
         </NavLink>
         <NavLink
           to={"/account/fav-poems"}
           className={({ isActive }) =>
-            `menu__link  ${isActive ? "menu__link--active" : ""}`
+            `menu__link ${isActive ? "menu__link--active" : ""}`
           }
+          onClick={linkClickHandler}
         >
           Favourite poems
         </NavLink>
@@ -62,8 +77,9 @@ const AccountPanel = () => {
           <NavLink
             to={"/account/all-poems"}
             className={({ isActive }) =>
-              `menu__link  ${isActive ? "menu__link--active" : ""}`
+              `menu__link ${isActive ? "menu__link--active" : ""}`
             }
+            onClick={linkClickHandler}
           >
             All user poems
           </NavLink>
@@ -72,13 +88,15 @@ const AccountPanel = () => {
           <NavLink
             to={"/account/all-users"}
             className={({ isActive }) =>
-              `menu__link  ${isActive ? "menu__link--active" : ""}`
+              `menu__link ${isActive ? "menu__link--active" : ""}`
             }
+            onClick={linkClickHandler}
           >
             All users
           </NavLink>
         )}
       </div>
+
       <div className="account-panel__main">
         <Routes>
           <Route path="/" element={<ProtectedRoute element={MyAccount} />} />

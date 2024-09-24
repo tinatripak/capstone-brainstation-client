@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "./AllUsers.scss";
 import {
   checkToken,
   deleteUserById,
@@ -10,6 +9,7 @@ import { useCookies } from "react-cookie";
 import { toast } from "react-toastify";
 import { AiOutlineDelete } from "react-icons/ai";
 import DeleteModal from "../../../components/DeleteModal/DeleteModal";
+import "./AllUsers.scss";
 
 const AllUsers = () => {
   const [users, setUsers] = useState([]);
@@ -21,14 +21,6 @@ const AllUsers = () => {
   const [filteredUsers, setFilteredUsers] = useState([]);
   const availableRoles = ["user", "admin", "super-admin"];
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      const { data } = await getUsers(cookies?.token);
-      setUsers(data);
-    };
-    fetchUsers();
-  }, []);
-
   const validateToken = async () => {
     const { user } = await checkToken(cookies.token);
     setIsSuperAdmin(user.role === "super-admin" ? true : false);
@@ -36,12 +28,6 @@ const AllUsers = () => {
       ? setFilteredUsers(users.filter((u) => u._id !== user.id))
       : setFilteredUsers(users.filter((user) => user.role === "user"));
   };
-
-  useEffect(() => {
-    if (cookies.token) {
-      validateToken();
-    }
-  }, [cookies.token, users]);
 
   const handleDelete = async (userId) => {
     try {
@@ -61,7 +47,6 @@ const AllUsers = () => {
 
   const handleRoleChange = async (userId, newRole) => {
     try {
-      console.log(userId, newRole, cookies?.token);
       const response = await editAdminById(userId, newRole, cookies?.token);
       if (response) {
         setUsers((prevUsers) =>
@@ -76,6 +61,20 @@ const AllUsers = () => {
       console.error("Failed to update user role:", error);
     }
   };
+
+  useEffect(() => {
+    if (cookies.token) {
+      validateToken();
+    }
+  }, [cookies.token, users]);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const { data } = await getUsers(cookies?.token);
+      setUsers(data);
+    };
+    fetchUsers();
+  }, []);
 
   return (
     <div className="all-users">
@@ -95,12 +94,12 @@ const AllUsers = () => {
           <tbody>
             {filteredUsers.map((user) => (
               <tr key={user._id}>
-                <td>{user.firstName}</td>
-                <td>{user.lastName}</td>
-                <td>{user.nickName}</td>
-                <td>{user.email}</td>
+                <td data-label="First Name">{user.firstName}</td>
+                <td data-label="Last Name">{user.lastName}</td>
+                <td data-label="Nickname">{user.nickName}</td>
+                <td data-label="Email">{user.email}</td>
                 {isSuperAdmin && (
-                  <td>
+                  <td data-label="Role">
                     <select
                       value={user.role}
                       onChange={(e) =>
@@ -118,7 +117,7 @@ const AllUsers = () => {
                     </select>
                   </td>
                 )}
-                <td>
+                <td data-label="Actions">
                   <AiOutlineDelete
                     size={20}
                     onClick={() => {

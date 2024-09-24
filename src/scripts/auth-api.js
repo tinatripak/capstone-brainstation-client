@@ -42,7 +42,7 @@ export const getUserById = async (id) => {
     const { data } = await axios.get(`${api_url}/auth/user/${id}`);
     return data;
   } catch (error) {
-    console.error("Error fetching a token: ", error);
+    console.error("Error fetching a user: ", error);
   }
 };
 
@@ -55,7 +55,7 @@ export const getUsers = async (token) => {
     });
     return data;
   } catch (error) {
-    console.error("Error fetching a token: ", error);
+    console.error("Error fetching users: ", error);
   }
 };
 
@@ -72,7 +72,7 @@ export const editUserById = async (id, updatedUser, token) => {
     );
     return data;
   } catch (error) {
-    console.error("Error fetching a token: ", error);
+    console.error("Error editing a user: ", error);
   }
 };
 
@@ -85,7 +85,7 @@ export const deleteUserById = async (id, token) => {
     });
     return data;
   } catch (error) {
-    console.error("Error fetching a token: ", error);
+    console.error("Error deleting a user: ", error);
   }
 };
 
@@ -102,7 +102,7 @@ export const editAdminById = async (id, role, token) => {
     );
     return data;
   } catch (error) {
-    console.error("Error fetching a token: ", error);
+    console.error("Error editing an admin: ", error);
   }
 };
 
@@ -115,6 +115,6 @@ export const deleteAdminById = async (id, token) => {
     });
     return data;
   } catch (error) {
-    console.error("Error fetching a token: ", error);
+    console.error("Error deleting an admin: ", error);
   }
 };

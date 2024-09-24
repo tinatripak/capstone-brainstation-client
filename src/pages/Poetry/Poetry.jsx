@@ -19,14 +19,16 @@ const Poetry = () => {
     setIsLoading(false);
   };
 
+  const loadMorePoetries = () => {
+    if (visiblePoetriesCount < poetries.length) {
+      setVisiblePoetriesCount((prevCount) => prevCount + 3);
+    }
+  };
+
   useEffect(() => {
     document.title = "Poems";
     fetchPoetries();
   }, []);
-
-  const loadMorePoetries = () => {
-    setVisiblePoetriesCount((prevCount) => prevCount + 3);
-  };
 
   return (
     <>
@@ -36,7 +38,7 @@ const Poetry = () => {
         <div className="poetry">
           <PageHeading text1="POETRY" text2="POEMS" />
           <div className="poetry__content">
-            {poetries.map((poetry) => (
+            {poetries.slice(0, visiblePoetriesCount).map((poetry) => (
               <PoetryCard
                 key={poetry._id}
                 id={poetry._id}

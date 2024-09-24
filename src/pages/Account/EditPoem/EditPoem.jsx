@@ -2,8 +2,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getPoem, updatePoem } from "../../../scripts/poetry-api";
 import { useCookies } from "react-cookie";
-import "./EditPoem.scss";
 import Loading from "../../../components/Loading/Loading";
+import "./EditPoem.scss";
 
 const EditPoem = () => {
   const { id } = useParams();
@@ -13,6 +13,21 @@ const EditPoem = () => {
   const [updatedPoem, setUpdatedPoem] = useState("");
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
+
+  const editPoem = async (e, id) => {
+    try {
+      e.preventDefault();
+      const updatedPoemData = { title: updatedTitle, poem: updatedPoem };
+      const data = await updatePoem(id, updatedPoemData, cookies?.token);
+      if (data?.success) {
+        setUpdatedTitle("");
+        setUpdatedPoem("");
+        navigate("/account/poems");
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   useEffect(() => {
     const fetchPoem = async () => {
@@ -30,21 +45,6 @@ const EditPoem = () => {
   useEffect(() => {
     document.title = "Edit My Poem";
   }, []);
-
-  const editPoem = async (e, id) => {
-    try {
-      e.preventDefault();
-      const updatedPoemData = { title: updatedTitle, poem: updatedPoem };
-      const data = await updatePoem(id, updatedPoemData, cookies?.token);
-      if (data?.success) {
-        setUpdatedTitle("");
-        setUpdatedPoem("");
-        navigate("/account/poems");
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
 
   return (
     <>

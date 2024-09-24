@@ -4,10 +4,10 @@ import "./Header.scss";
 
 const Header = () => {
   return (
-    <div className="header">
+    <header className="header">
       <NavLogo />
       <NavMenu />
-    </div>
+    </header>
   );
 };
 
